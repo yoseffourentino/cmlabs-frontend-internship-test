@@ -15,4 +15,15 @@ fetch(foodsApi)
         div.style.backgroundImage = `url(${foodCategoryBg})`
         div.classList.add('food-category')
         div.classList.add('bg-opacity')
+
+        div.addEventListener("click", () => {
+            redirectToCategoryDetail(food.strCategory);
+        });
+
     }))
+
+    function redirectToCategoryDetail(categoryName) {
+        window.location.href = `category-detail.html?category-name=${encodeURIComponent(
+        categoryName
+        )}`;
+    }
