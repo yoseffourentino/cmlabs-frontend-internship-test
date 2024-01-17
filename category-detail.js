@@ -2,7 +2,6 @@ const mealsContainer = document.getElementById("meals-container");
 const urlParams = new URLSearchParams(window.location.search);
 const categoryName = urlParams.get("category-name");
 
-// Fetching data from the Filter Category API
 fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${categoryName}`)
     .then((response) => response.json())
     .then((data) => {
@@ -11,7 +10,6 @@ fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${categoryName}`)
     })
     .catch((error) => console.error("Error fetching meals:", error));
 
-// Displaying meals on the page
 function displayMeals(meals) {
     mealsContainer.innerHTML = "";
 
@@ -29,12 +27,11 @@ function displayMeals(meals) {
     });
 
     mealsContainer.appendChild(mealElement);
-  });
+});
 }
 
-// Redirecting to Meals Detail page
 function redirectToMealDetail(mealId) {
-  window.location.href = `meals-detail.html?meal-id=${encodeURIComponent(
+window.location.href = `meals-detail.html?meal-id=${encodeURIComponent(
     mealId
-  )}`;
+)}`;
 }

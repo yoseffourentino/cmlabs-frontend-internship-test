@@ -2,7 +2,6 @@ const mealDetailContainer = document.getElementById("meal-detail-container");
 const urlParams = new URLSearchParams(window.location.search);
 const mealId = urlParams.get("meal-id");
 
-// Fetching data from the Detail Meal API
 fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`)
     .then((response) => response.json())
     .then((data) => {
@@ -11,7 +10,6 @@ fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`)
     })
     .catch((error) => console.error("Error fetching meal detail:", error));
 
-// Displaying meal detail on the page
 function displayMealDetail(meal) {
     mealDetailContainer.innerHTML = "";
 
